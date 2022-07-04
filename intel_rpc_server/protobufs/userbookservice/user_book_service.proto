@@ -1,0 +1,23 @@
+syntax = "proto3";
+
+package userbookservice;
+
+
+service UserBookServiceController {
+    rpc GetBookedServiceByCode(UserBookServiceCodeRequest) returns (UserBookService) {}
+}
+
+message UserBookServiceCodeRequest {
+    string code = 1;
+}
+
+message UserBookService{
+    int32 id = 1;
+    string booked_by = 2;
+    string booked_entity_service = 3;
+    string schedule_date = 4;
+    string entity_booking_schedule = 5;
+    string code = 6;
+    bool payed = 7;
+
+}

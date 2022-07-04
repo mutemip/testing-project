@@ -1,0 +1,100 @@
+[
+{
+    "model": "booking_manager_api.TimeSlot",
+    "pk": 1,
+    "fields": {
+        "start_time": "0:00",
+        "end_time": "1:00",
+        "interval_in_minute": "60"
+    }
+}, {
+    "model": "booking_manager_api.TimeSlot",
+    "pk": 2,
+    "fields": {
+        "start_time": "1:00",
+        "end_time": "2:00",
+        "interval_in_minute": "60"
+    }
+}, {
+    "model": "booking_manager_api.TimeSlot",
+    "pk": 3,
+    "fields": {
+        "start_time": "2:00",
+        "end_time": "3:00",
+        "interval_in_minute": "60"
+    }
+}, {
+    "model": "booking_manager_api.TimeSlot",
+    "pk": 4,
+    "fields": {
+        "start_time": "3:00",
+        "end_time": "4:00",
+        "interval_in_minute": "60"
+    }
+}, {
+    "model": "booking_manager_api.TimeSlot",
+    "pk": 5,
+    "fields": {
+        "start_time": "4:00",
+        "end_time": "5:00",
+        "interval_in_minute": "60"
+    }
+}, {
+    "model": "booking_manager_api.TimeSlot",
+    "pk": 6,
+    "fields": {
+        "start_time": "5:00",
+        "end_time": "6:00",
+        "interval_in_minute": "60"
+    }
+}, {
+    "model": "booking_manager_api.TimeSlot",
+    "pk": 7,
+    "fields": {
+        "start_time": "6:00",
+        "end_time": "7:00",
+        "interval_in_minute": "60"
+    }
+}, {
+    "model": "booking_manager_api.TimeSlot",
+    "pk": 8,
+    "fields": {
+        "start_time": "7:00",
+        "end_time": "8:00",
+        "interval_in_minute": "60"
+    }
+}, {
+    "model": "booking_manager_api.TimeSlot",
+    "pk": 9,
+    "fields": {
+        "start_time": "8:00",
+        "end_time": "9:00",
+        "interval_in_minute": "60"
+    }
+}, {
+    "model": "booking_manager_api.TimeSlot",
+    "pk": 10,
+    "fields": {
+        "start_time": "9:00",
+        "end_time": "10:00",
+        "interval_in_minute": "60"
+    }
+}, {
+    "model": "booking_manager_api.TimeSlot",
+    "pk": 11,
+    "fields": {
+        "start_time": "10:00",
+        "end_time": "11:00",
+        "interval_in_minute": "60"
+    }
+}, {
+    "model": "booking_manager_api.TimeSlot",
+    "pk": 12,
+    "fields": {
+        "start_time": "11:00",
+        "end_time": "12:00",
+        "interval_in_minute": "60"
+    }
+}
+
+]

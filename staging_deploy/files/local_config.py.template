@@ -1,0 +1,63 @@
+import os
+
+
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+cwd = os.path.dirname(os.path.realpath(__file__))
+
+XCHANGE_API_URL_BASE = "https://xchange.panabios.org"
+
+
+DEBUG = False
+
+PROD_CAS = False
+
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.mysql',
+        'HOST': '212.71.248.91',
+        'NAME': 'staging_intel_db',
+        'USER': 'panabios_staging',
+        'PASSWORD': 'W2{N#q(5{wcWygpj9qA5?_c,)B+DfM"6b'
+    },
+}
+
+
+RAVEN_CONFIG = {
+    'dsn': "{{ sentry }}",
+}
+
+
+PROJ_VA = "Staging"
+
+CORS_ALLOWED_ORIGINS = [
+    "https://staging.book.panabios.org"
+]
+
+CORS_ALLOW_HEADERS = [
+    "accept",
+    "accept-encoding",
+    "authorization",
+    "content-type",
+    "dnt",
+    "origin",
+    "user-agent",
+    "x-csrftoken",
+    "x-requested-with",
+    "session-key"
+]
+
+CORS_EXPOSE_HEADERS = [
+    "accept",
+    "accept-encoding",
+    "authorization",
+    "content-type",
+    "dnt",
+    "origin",
+    "user-agent",
+    "x-csrftoken",
+    "x-requested-with",
+    "session-key"
+]
+
+CORS_ORIGIN_ALLOW_ALL = True
+CORS_ALLOW_CREDENTIALS = True

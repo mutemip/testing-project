@@ -1,0 +1,7 @@
+[staging]
+139.162.164.225 ansible_ssh_user=root
+
+[staging:vars]
+ansible_python_interpreter=/usr/bin/python3
+
+sentry='http://9330488ede584154b69e6222f6fc4147:3e3ac14e029048d3a4e9a0d70d4558fe@212.111.40.61:9000/11'

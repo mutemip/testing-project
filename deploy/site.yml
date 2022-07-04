@@ -1,0 +1,55 @@
+---
+- hosts: staging
+  vars:
+    REVISION:  "{{ lookup('env', 'GO_TO_REVISION') }}"
+
+  tasks:
+  - name: check out Trusted Intel Staging
+    git: dest=/home/panabios/Trusted_Intel_Platform_Backend
+         repo=git@github.com:Koldchain1/Trusted_Intel_Platform_Backend.git
+         key_file=/home/panabios/.ssh/koldchain_rsa
+         version=main
+         force=yes
+    become_user: panabios
+
+
+  - name: generate local_config.py from template
+    template: dest=/home/panabios/Trusted_Intel_Platform_Backend/Trusted_Intel_Platform_Backend/local_config.py src=files/local_config.py.template mode=0600 owner=panabios
+
+  - name: install pip requirements
+    command: bash script/run_staging.sh pip install -r /home/panabios/Trusted_Intel_Platform_Backend/requirements.txt
+             chdir=/home/panabios/Trusted_Intel_Platform_Backend
+
+  - name: install grpc requirements
+    command: bash script/run_staging.sh pip install -e intel_rpc_server/
+             chdir=/home/panabios/Trusted_Intel_Platform_Backend
+
+  - name: migrate the db
+    command: bash script/run_staging.sh python manage.py migrate
+             chdir=/home/panabios/Trusted_Intel_Platform_Backend
+
+#  - name: collect static
+#    command: bash script/run_staging.sh python manage.py collectstatic  --noinput
+#             chdir=/home/panabios/Koldchain_App_Backend_Staging
+
+
+  - name: load group day of the week
+    command: bash script/run_staging.sh python manage.py loaddata booking_manager_api/fixtures/dayoftheweek.json
+             chdir=/home/panabios/Trusted_Intel_Platform_Backend
+
+
+  - name: load medical sample timeslot
+    command: bash script/run_staging.sh python manage.py loaddata booking_manager_api/fixtures/timeslot.json
+             chdir=/home/panabios/Trusted_Intel_Platform_Backend
+
+  - name: Load Bookable Service
+    command: bash script/run_staging.sh python manage.py  load_bookable_services
+             chdir=/home/panabios/Trusted_Intel_Platform_Backend
+
+  - name: Set directory permission
+    file: path=/home/panabios/Trusted_Intel_Platform_Backend owner=panabios group=panabios recurse=yes
+
+  - name: Restart Supervisor Programmes
+    shell: "supervisorctl pid {{ item }} | xargs kill -s HUP"
+    with_items:
+        - staging_intel_prim
