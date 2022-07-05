@@ -136,8 +136,8 @@ CELERY_TIMEZONE = 'Africa/Accra'
 
 RWANDA_TOKEN_URL = "http://197.243.23.233:8767/api/auth"
 RWANDA_BOOKING_ENDPOINT_URL = "http://197.243.23.233:8767/api/au/booking"
-RWANDA_USERNAME = "au_integration"
-RWANDA_PASSWORD = "uAhY0bD!@4svYqif@n"
+RWANDA_USERNAME = ""
+RWANDA_PASSWORD = ""
 
 
 
